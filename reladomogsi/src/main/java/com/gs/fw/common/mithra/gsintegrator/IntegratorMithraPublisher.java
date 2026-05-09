@@ -81,7 +81,7 @@ public class IntegratorMithraPublisher implements IPublisher
         }
         try
         {
-            this.plugin = (PublisherPlugin) Class.forName(pluginClassName).newInstance();
+            this.plugin = (PublisherPlugin) Class.forName(pluginClassName).getDeclaredConstructor().newInstance();
             if (this.txManager != null)
             {
                 txManager.setPlugin(this.plugin);

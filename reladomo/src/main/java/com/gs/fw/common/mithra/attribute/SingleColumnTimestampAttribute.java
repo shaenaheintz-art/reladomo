@@ -274,7 +274,7 @@ public abstract class SingleColumnTimestampAttribute<Owner> extends TimestampAtt
         {
             e = (SingleColumnTimestampAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnTimestampAttribute", false, hasShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnTimestampAttribute", false, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

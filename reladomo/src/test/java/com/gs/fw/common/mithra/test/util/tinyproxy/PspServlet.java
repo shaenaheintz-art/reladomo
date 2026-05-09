@@ -117,7 +117,7 @@ public class PspServlet implements Servlet
                 Object service;
                 try
                 {
-                    service = serviceClass.newInstance();
+                    service = serviceClass.getDeclaredConstructor().newInstance();
                 }
                 catch (Exception e)
                 {

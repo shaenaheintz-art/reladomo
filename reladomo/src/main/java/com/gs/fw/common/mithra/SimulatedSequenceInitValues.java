@@ -54,7 +54,7 @@ public class SimulatedSequenceInitValues
         this.sequenceObjectFactoryName = sequenceObjectFactoryName;
         try
         {
-            this.sequenceObjectFactory = Class.forName(sequenceObjectFactoryName).newInstance();
+            this.sequenceObjectFactory = Class.forName(sequenceObjectFactoryName).getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {

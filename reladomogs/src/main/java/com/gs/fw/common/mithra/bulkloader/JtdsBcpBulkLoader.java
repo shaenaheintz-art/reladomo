@@ -568,7 +568,7 @@ public class JtdsBcpBulkLoader implements BulkLoader, ConnectionFactory
     {
         try
         {
-            Class.forName(JTDS_JBCP_DRIVER).newInstance();
+            Class.forName(JTDS_JBCP_DRIVER).getDeclaredConstructor().newInstance();
             return (BCP) DriverManager.getConnection(urlBase + "/;appName=" + AbstractConnectionManager.getApplicationName() + "jTDS", user, password);
         }
         catch (ClassNotFoundException e)

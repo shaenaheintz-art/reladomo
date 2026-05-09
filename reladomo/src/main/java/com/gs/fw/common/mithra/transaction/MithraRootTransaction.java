@@ -1004,6 +1004,7 @@ public class MithraRootTransaction extends MithraLocalTransaction implements Syn
         return false;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() throws Throwable
     {

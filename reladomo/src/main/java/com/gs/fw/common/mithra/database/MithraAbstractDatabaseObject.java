@@ -321,7 +321,7 @@ public abstract class MithraAbstractDatabaseObject
         {
             try
             {
-                return (MithraStatsListenerFactory) Class.forName(factoryClassName).newInstance();
+                return (MithraStatsListenerFactory) Class.forName(factoryClassName).getDeclaredConstructor().newInstance();
             }
             catch (Exception e)
             {
@@ -2430,13 +2430,9 @@ public abstract class MithraAbstractDatabaseObject
     {
         try
         {
-            return bean.newInstance();
+            return bean.getDeclaredConstructor().newInstance();
         }
-        catch (InstantiationException e)
-        {
-            throw new MithraBusinessException("Exception occurred instantiating " + bean.getName(), e);
-        }
-        catch (IllegalAccessException e)
+        catch (ReflectiveOperationException e)
         {
             throw new MithraBusinessException("Exception occurred instantiating " + bean.getName(), e);
         }

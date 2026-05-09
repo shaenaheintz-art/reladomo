@@ -311,7 +311,7 @@ public abstract class SingleColumnByteAttribute<T> extends ByteAttribute<T> impl
         {
             e = (SingleColumnByteAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnByteAttribute", false, hasShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnByteAttribute", false, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

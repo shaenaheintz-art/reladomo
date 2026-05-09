@@ -361,7 +361,7 @@ public class WorkerVm
             server.start();
             holder.getServlet();
             Class testClass = Class.forName(args[1]);
-            MultiVmTest testCase = (MultiVmTest) testClass.newInstance();
+            MultiVmTest testCase = (MultiVmTest) testClass.getDeclaredConstructor().newInstance();
             testCase.setApplicationPorts(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
             RemoteWorkerVmImpl.setTestCase(testCase);
             if (runWorkerVmStartup) testCase.workerVmOnStartup();

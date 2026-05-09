@@ -334,7 +334,7 @@ public abstract class SingleColumnIntegerAttribute<T> extends IntegerAttribute<T
         {
             e = (SingleColumnIntegerAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnIntegerAttribute", hasSequence, hasShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnIntegerAttribute", hasSequence, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

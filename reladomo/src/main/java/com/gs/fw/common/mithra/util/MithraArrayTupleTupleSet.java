@@ -468,9 +468,12 @@ public class MithraArrayTupleTupleSet implements MithraTupleSet, Externalizable
         public static synchronized void throwCheckedException(Throwable throwable) {
             Exceptions.throwable = throwable;
             try {
-                Exceptions.class.newInstance();
+                Exceptions.class.getDeclaredConstructor().newInstance();
+            } catch(java.lang.reflect.InvocationTargetException e) {
+                // Constructor.newInstance() wraps the thrown exception
             } catch(InstantiationException e) {
             } catch(IllegalAccessException e) {
+            } catch(NoSuchMethodException e) {
             } finally {
                 Exceptions.throwable = null;
             }

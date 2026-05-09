@@ -236,7 +236,7 @@ public abstract class SingleColumnByteArrayAttribute<Owner> extends ByteArrayAtt
         try
         {
             e = (SingleColumnByteArrayAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
-                    busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition, "com/gs/fw/common/mithra/attribute/SingleColumnByteArrayAttribute", false, hasShadowAttribute).newInstance();
+                    busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition, "com/gs/fw/common/mithra/attribute/SingleColumnByteArrayAttribute", false, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

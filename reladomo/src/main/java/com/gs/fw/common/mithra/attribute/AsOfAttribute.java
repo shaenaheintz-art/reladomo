@@ -586,7 +586,7 @@ public abstract class AsOfAttribute<T> extends Attribute<T, Timestamp> implement
         try
         {
             e = (AsOfAttribute) extractorWriter.createClass(attributeName,
-                    busClassName, isInfinityNull).newInstance();
+                    busClassName, isInfinityNull).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

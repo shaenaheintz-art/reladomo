@@ -269,7 +269,7 @@ public abstract class SingleColumnBigDecimalAttribute<T> extends BigDecimalAttri
         {
             e = (SingleColumnBigDecimalAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnBigDecimalAttribute", false, isShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnBigDecimalAttribute", false, isShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

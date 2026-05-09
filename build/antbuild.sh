@@ -33,9 +33,7 @@ done
 ANTBUILD_HOME=`dirname "$PRG"`
 ANT_HOME=$ANTBUILD_HOME
 
-ANT_CLASSPATH=$JDK_HOME/lib/rt.jar
-ANT_CLASSPATH=$ANT_CLASSPATH:$ANTBUILD_HOME/lib/*
-ANT_CLASSPATH=$ANT_CLASSPATH:$JDK_HOME/lib/tools.jar
+ANT_CLASSPATH="$ANTBUILD_HOME/lib/*"
 export ANT_CLASSPATH
 echo $ANT_CLASSPATH
 
@@ -49,5 +47,5 @@ export JVM_ARGS
 PATH=$ANTBUILD_HOME/build/bin:$PATH
 export PATH
 
-$JDK_HOME/bin/java $JVM_ARGS -classpath $ANT_CLASSPATH $ANT_ARGS org.apache.tools.ant.launch.Launcher -listener org.apache.tools.ant.listener.Log4jListener -f $*
+$JDK_HOME/bin/java $JVM_ARGS -classpath "$ANT_CLASSPATH" $ANT_ARGS org.apache.tools.ant.launch.Launcher -listener org.apache.tools.ant.listener.Log4jListener -f $*
 

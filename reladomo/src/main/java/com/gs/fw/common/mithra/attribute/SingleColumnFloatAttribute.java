@@ -298,7 +298,7 @@ public abstract class SingleColumnFloatAttribute<T> extends FloatAttribute<T> im
         {
             e = (SingleColumnFloatAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnFloatAttribute", false, hasShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnFloatAttribute", false, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {

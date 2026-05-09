@@ -86,17 +86,9 @@ public abstract class MithraRemoteResult implements Externalizable, Runnable
         RelatedFinder finderClass = null;
         try
         {
-            finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+            finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
         }
-        catch (InstantiationException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch (IllegalAccessException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch (ClassNotFoundException e)
+        catch (ReflectiveOperationException e)
         {
             throw new RuntimeException(e);
         }
@@ -175,15 +167,11 @@ public abstract class MithraRemoteResult implements Externalizable, Runnable
             RelatedFinder finderClass = null;
             try
             {
-                finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+                finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
             }
-            catch (InstantiationException e)
+            catch (ReflectiveOperationException e)
             {
-                throw new RuntimeException();
-            }
-            catch (IllegalAccessException e)
-            {
-                throw new RuntimeException();
+                throw new RuntimeException(e);
             }
             Object sourceAttributeValue = in.readObject();
             String databaseIdentifier = (String) in.readObject();

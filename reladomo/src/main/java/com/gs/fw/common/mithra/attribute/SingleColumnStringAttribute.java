@@ -210,7 +210,7 @@ public abstract class SingleColumnStringAttribute<Owner> extends StringAttribute
         {
             e = (SingleColumnStringAttribute) extractorWriter.createClass(attributeName, isNullablePrimitive, hasBusDate, busClassNameWithDots,
                     busClassName, isOptimistic, offHeapFieldOffset, offHeapNullBitsOffset, offHeapNullBitsPosition,
-                    "com/gs/fw/common/mithra/attribute/SingleColumnStringAttribute", false, hasShadowAttribute).newInstance();
+                    "com/gs/fw/common/mithra/attribute/SingleColumnStringAttribute", false, hasShadowAttribute).getDeclaredConstructor().newInstance();
         }
         catch (Exception excp)
         {
