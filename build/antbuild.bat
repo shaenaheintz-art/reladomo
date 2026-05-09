@@ -22,9 +22,7 @@ call %ANTBUILD_HOME%setenv.bat
 set ANT_HOME=%ANTBUILD_HOME$
 
 @REM  Set the classpath
-set ANT_CLASSPATH=%JDK_HOME%\jre\lib\rt.jar
-set ANT_CLASSPATH=%ANT_CLASSPATH%;%ANTBUILD_HOME%lib\*
-set ANT_CLASSPATH=%ANT_CLASSPATH%;%JDK_HOME%\lib\tools.jar
+set ANT_CLASSPATH=%ANTBUILD_HOME%lib\*
 
 set ANT_ARGS=-Dant.home=%ANT_HOME%
 set ANT_ARGS=%ANT_ARGS% -Dlog4j.configuration="file:%ANTBUILD_HOME%\log4j.config"
@@ -36,7 +34,7 @@ set JVM_ARGS=-ms16m -mx1024m -server -XX:+UseParallelGC -XX:MaxHeapFreeRatio=20 
 set PATH=%ANTBUILD_HOME%\build\bin;%PATH%
 
 echo on
-%JDK_HOME%\jre\bin\java %JVM_ARGS% -classpath %ANT_CLASSPATH% %ANT_ARGS% org.apache.tools.ant.launch.Launcher -listener org.apache.tools.ant.listener.Log4jListener -f %1 %2 %3 %4 %5 %6 %7 %8
+%JDK_HOME%\bin\java %JVM_ARGS% -classpath %ANT_CLASSPATH% %ANT_ARGS% org.apache.tools.ant.launch.Launcher -listener org.apache.tools.ant.listener.Log4jListener -f %1 %2 %3 %4 %5 %6 %7 %8
 @echo off
 
 endlocal

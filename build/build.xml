@@ -187,22 +187,14 @@
     <target name="all" depends="compile-reladomo, compile-reladomo-genutil"/>
 
     <target name="sanity-check-build">
-        <available property="jdk.sanity.check" classname="java.sql.Connection" ignoresystemclasses="true">
-            <classpath>
-                <fileset dir="${jdk.home}" includes="**/*.jar"/>
-            </classpath>
-        </available>
+        <available property="jdk.sanity.check" file="${jdk.home}/bin/java"/>
         <fail message="Could not find the JDK! Check ${jdk.home}." unless="jdk.sanity.check"/>
         <available property="reladomo.sanity.check" file="${root}/reladomo/src/main/java/com/gs/fw/common/mithra/MithraManager.java"/>
         <fail message="Could not find Reladomo sources. Project root is ${root}, but there is nothing in ${root}/reladomo/src/main/java/com/gs/fw/common/mithra/MithraManager.java." unless="reladomo.sanity.check"/>
     </target>
 
     <target name="determine-jdk">
-        <available property="jdk14" classname="java.sql.Savepoint" ignoresystemclasses="true">
-            <classpath>
-                <pathelement location="${jdk.home}/jre/lib/rt.jar"/>
-            </classpath>
-        </available>
+        <available property="jdk14" file="${jdk.home}/bin/java"/>
     </target>
 
     <target name="init-reladomo" depends="determine-jdk, sanity-check-build">
