@@ -61,7 +61,7 @@ public class FunctionExpression extends Expression
         {
             String className = "com.gs.fw.common.mithra.generator.functiongen"+
                     sourceExpression.getType().toString() + StringUtility.firstLetterToUpper(this.functionName) + "FuncGen";
-            return (FunctionGenerator) Class.forName(className).newInstance();
+            return (FunctionGenerator) Class.forName(className).getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {

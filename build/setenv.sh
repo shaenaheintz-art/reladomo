@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # uncomment next line and set to your local jdk
-#export RELADOMO_JDK_HOME=/opt/jdk1.6.0_45
+#export RELADOMO_JDK_HOME=/opt/jdk-17
 
 # no need to modify stuff below:
 
@@ -24,7 +24,7 @@ export RELADOMO_HOME=${RELADOMO_HOME:-"$SCRIPTPATH/.."}
 
 echo RELADOMO_HOME is $RELADOMO_HOME
 
-export JDK_HOME=${RELADOMO_JDK_HOME:-"/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"}
+export JDK_HOME=${RELADOMO_JDK_HOME:-"/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"}
 
 export GENERATE_RELADOMO_CONCRETE_CLASSES=true
 

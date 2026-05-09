@@ -111,7 +111,7 @@ public class RemoteAggregateResult  extends MithraRemoteResult
             RelatedFinder finderClass;
             try
             {
-                finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+                finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
             }
             catch (InstantiationException e)
             {

@@ -106,7 +106,7 @@ public class XAConnectionManager extends AbstractConnectionManager
         {
             try
             {
-                this.ldapDataSourceProvider = (LdapDataSourceProvider) Class.forName("com.gs.fw.common.mithra.connectionmanager.JndiJdbcLdapDataSourceProvider").newInstance();
+                this.ldapDataSourceProvider = (LdapDataSourceProvider) Class.forName("com.gs.fw.common.mithra.connectionmanager.JndiJdbcLdapDataSourceProvider").getDeclaredConstructor().newInstance();
             }
             catch (Exception e)
             {

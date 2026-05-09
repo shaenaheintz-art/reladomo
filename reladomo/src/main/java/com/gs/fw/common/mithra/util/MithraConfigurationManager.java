@@ -560,7 +560,7 @@ public class MithraConfigurationManager
         try
         {
             Class dboClass = Class.forName(objectFactoryClassName);
-            MithraObjectDeserializer deserializer = (MithraObjectDeserializer) dboClass.newInstance();
+            MithraObjectDeserializer deserializer = (MithraObjectDeserializer) dboClass.getDeclaredConstructor().newInstance();
             initSimulatedSequences(deserializer);
             return deserializer;
         }
@@ -1609,7 +1609,7 @@ public class MithraConfigurationManager
         try
         {
             Class lopClass = Class.forName(loadOperationProviderName);
-            LoadOperationProvider loadOperationProvider = (LoadOperationProvider) lopClass.newInstance();
+            LoadOperationProvider loadOperationProvider = (LoadOperationProvider) lopClass.getDeclaredConstructor().newInstance();
             return loadOperationProvider;
         }
         catch (IllegalAccessException e)

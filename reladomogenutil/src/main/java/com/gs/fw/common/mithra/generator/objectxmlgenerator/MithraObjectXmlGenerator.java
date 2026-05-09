@@ -652,7 +652,7 @@ public class MithraObjectXmlGenerator extends Task
         {
             if (ldapName == null)
             {
-                Class.forName(driver).newInstance();
+                Class.forName(driver).getDeclaredConstructor().newInstance();
                 return DriverManager.getConnection(url, userName, password);
             }
             else
@@ -668,7 +668,7 @@ public class MithraObjectXmlGenerator extends Task
                 LdapDataSourceProvider ldapDataSourceProvider;
                 try
                 {
-                    ldapDataSourceProvider = (LdapDataSourceProvider) Class.forName(ldapDataSourceProviderClassName).newInstance();
+                    ldapDataSourceProvider = (LdapDataSourceProvider) Class.forName(ldapDataSourceProviderClassName).getDeclaredConstructor().newInstance();
                 }
                 catch (Exception e)
                 {

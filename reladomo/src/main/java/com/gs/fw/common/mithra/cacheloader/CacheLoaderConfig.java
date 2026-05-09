@@ -80,7 +80,7 @@ public class CacheLoaderConfig
             }
             else
             {
-                return Class.forName(className).newInstance();
+                return Class.forName(className).getDeclaredConstructor().newInstance();
             }
         }
         catch (Exception e)

@@ -108,7 +108,7 @@ public class MithraParsedData
         MithraDataObject currentData;
         try
         {
-            currentData = (MithraDataObject) dataClass.newInstance();
+            currentData = (MithraDataObject) dataClass.getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {

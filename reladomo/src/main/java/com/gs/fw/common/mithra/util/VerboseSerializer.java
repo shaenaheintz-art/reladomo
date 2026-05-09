@@ -279,7 +279,7 @@ public class VerboseSerializer
             Object data = null;
             try
             {
-                data = VerboseSerializer.this.dataClass.newInstance();
+                data = VerboseSerializer.this.dataClass.getDeclaredConstructor().newInstance();
             }
             catch (Exception e)
             {

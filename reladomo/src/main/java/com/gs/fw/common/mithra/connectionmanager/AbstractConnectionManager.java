@@ -435,7 +435,7 @@ public abstract class AbstractConnectionManager
     {
         try
         {
-            this.driver = (Driver) Class.forName(driver).newInstance();
+            this.driver = (Driver) Class.forName(driver).getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {

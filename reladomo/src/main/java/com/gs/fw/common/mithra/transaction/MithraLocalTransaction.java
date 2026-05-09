@@ -727,6 +727,7 @@ public abstract class MithraLocalTransaction extends MithraTransaction
     /**
       * Cleanup code. Attempting to rollback all uncommitted transactions
       */
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() throws Throwable
     {

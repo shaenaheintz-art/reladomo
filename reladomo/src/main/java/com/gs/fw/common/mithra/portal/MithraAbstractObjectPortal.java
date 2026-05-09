@@ -1105,7 +1105,7 @@ public abstract class MithraAbstractObjectPortal implements MithraObjectPortal
     {
         try
         {
-            return bean.newInstance();
+            return bean.getDeclaredConstructor().newInstance();
         }
         catch (InstantiationException e)
         {

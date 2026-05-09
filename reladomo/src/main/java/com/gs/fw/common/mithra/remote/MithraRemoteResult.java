@@ -86,7 +86,7 @@ public abstract class MithraRemoteResult implements Externalizable, Runnable
         RelatedFinder finderClass = null;
         try
         {
-            finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+            finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
         }
         catch (InstantiationException e)
         {
@@ -175,7 +175,7 @@ public abstract class MithraRemoteResult implements Externalizable, Runnable
             RelatedFinder finderClass = null;
             try
             {
-                finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+                finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
             }
             catch (InstantiationException e)
             {

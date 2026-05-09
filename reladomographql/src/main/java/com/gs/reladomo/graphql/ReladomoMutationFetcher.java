@@ -127,7 +127,7 @@ public class ReladomoMutationFetcher<T> implements DataFetcher<T>
         final List<Timestamp> paramList = FastList.newList();
         if (this.finder.getAsOfAttributes() == null)
         {
-            return reladomoClass.newInstance();
+            return reladomoClass.getDeclaredConstructor().newInstance();
         }
 
         for (AsOfAttribute each : this.finder.getAsOfAttributes())

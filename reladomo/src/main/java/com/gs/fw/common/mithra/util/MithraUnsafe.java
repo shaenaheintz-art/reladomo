@@ -31,6 +31,7 @@ public class MithraUnsafe
     private static Unsafe UNSAFE = getUnsafe();
     private static AuditedMemory AUDITED_MEMORY;
 
+    @SuppressWarnings("deprecation")
     public static Unsafe getUnsafe()
     {
         try

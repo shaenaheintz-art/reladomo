@@ -58,7 +58,7 @@ public class RemoteExtractOperationDatabaseIdentifiersResult extends MithraRemot
             RelatedFinder finderClass = null;
             try
             {
-                finderClass = (RelatedFinder) Class.forName(finderClassname).newInstance();
+                finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
             }
             catch (InstantiationException e)
             {

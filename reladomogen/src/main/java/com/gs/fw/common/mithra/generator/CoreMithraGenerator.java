@@ -348,7 +348,7 @@ public class CoreMithraGenerator extends BaseMithraGenerator
     {
         try
         {
-            return (MithraTemplate) BaseMithraGenerator.class.getClassLoader().loadClass(name).newInstance();
+            return (MithraTemplate) BaseMithraGenerator.class.getClassLoader().loadClass(name).getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {
