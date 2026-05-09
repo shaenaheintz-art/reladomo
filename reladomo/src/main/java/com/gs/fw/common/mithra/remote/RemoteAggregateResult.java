@@ -113,13 +113,9 @@ public class RemoteAggregateResult  extends MithraRemoteResult
             {
                 finderClass = (RelatedFinder) Class.forName(finderClassname).getDeclaredConstructor().newInstance();
             }
-            catch (InstantiationException e)
+            catch (ReflectiveOperationException e)
             {
-                throw new RuntimeException();
-            }
-            catch (IllegalAccessException e)
-            {
-                throw new RuntimeException();
+                throw new RuntimeException(e);
             }
             Object sourceAttributeValue = in.readObject();
             String databaseIdentifier = (String) in.readObject();

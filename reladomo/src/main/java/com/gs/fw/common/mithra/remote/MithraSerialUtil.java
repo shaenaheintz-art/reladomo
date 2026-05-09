@@ -65,11 +65,7 @@ public class MithraSerialUtil
         {
             return (MithraDataObject) dataClass.getDeclaredConstructor().newInstance();
         }
-        catch (InstantiationException e)
-        {
-            problem = e;
-        }
-        catch (IllegalAccessException e)
+        catch (ReflectiveOperationException e)
         {
             problem = e;
         }
@@ -92,15 +88,7 @@ public class MithraSerialUtil
         {
             return Class.forName(className).getDeclaredConstructor().newInstance();
         }
-        catch (InstantiationException e)
-        {
-            problem = e;
-        }
-        catch (IllegalAccessException e)
-        {
-            problem = e;
-        }
-        catch (ClassNotFoundException e)
+        catch (ReflectiveOperationException e)
         {
             problem = e;
         }

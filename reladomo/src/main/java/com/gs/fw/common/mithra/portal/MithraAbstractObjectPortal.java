@@ -1107,13 +1107,9 @@ public abstract class MithraAbstractObjectPortal implements MithraObjectPortal
         {
             return bean.getDeclaredConstructor().newInstance();
         }
-        catch (InstantiationException e)
+        catch (ReflectiveOperationException e)
         {
             throw new MithraBusinessException("Error instantiating class " + bean.getName(), e);
-        }
-        catch (IllegalAccessException e)
-        {
-            throw new MithraBusinessException("No valid access to invoke constructor of class " + bean.getName(), e);
         }
     }
 
